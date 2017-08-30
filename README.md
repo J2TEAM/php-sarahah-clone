@@ -2,7 +2,17 @@
 
 A PHP (clone) version of the trending app Sarahah
 
-**Note:** This is an open-source project, so I can not [upload your contacts](https://thehackernews.com/2017/08/sarahah-privacy.html) to anywhere.
+**Note:** This is an open-source project, so I can not [upload your contacts](https://thehackernews.com/2017/08/sarahah-privacy.html) to anywhere :trollface:
+
+## Screenshots
+
+![homepage](_screenshots/homepage.png)
+
+![new message](_screenshots/send-a-new-message.png)
+
+![messages](_screenshots/messages.png)
+
+![delete message](_screenshots/delete-message.png)
 
 ## Installation
 

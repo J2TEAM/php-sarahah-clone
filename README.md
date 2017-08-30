@@ -20,7 +20,8 @@ A PHP (clone) version of the trending app Sarahah
 2. Unzip file.
 3. Create a new Database and import **sarahah.sql** (from **_install** folder).
 4. Rename **config.php.example** to **config.php** and edit content with your info (database, admin account, reCaptcha,...).
-5. Upload anything except the **_install** folder.
+5. [Install Composer](https://getcomposer.org/download/) and run the command `composer install` to install dependency libraries.
+6. Upload anything except the **_install** folder.
 
 ## Usage
 

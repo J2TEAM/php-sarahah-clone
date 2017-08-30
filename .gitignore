@@ -48,3 +48,4 @@ Temporary Items
 
 vendor/
 composer.lock
+config.php

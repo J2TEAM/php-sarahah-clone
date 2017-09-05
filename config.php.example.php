@@ -16,6 +16,9 @@ define('ADMIN_PASSWORD', '$2y$10$3/diQl2HDIinCtvijnVeP.sdz6flPXFfiTdx.NEq3/MppR.
 define('RECAPTCHA_SITEKEY', 'YOUR_SITEKEY');
 define('RECAPTCHA_SECRET', 'YOUR_SECRET');
 
+/* Share on Facebook */
+define('ACCESS_TOKEN', 'YOUR_ACCESS_TOKEN');
+
 /* OTHER */
 define('YOUR_NAME', 'Juno_okyo');
 

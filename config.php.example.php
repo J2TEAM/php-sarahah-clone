@@ -13,6 +13,7 @@ define('ADMIN_USERNAME', 'admin');
 define('ADMIN_PASSWORD', '$2y$10$3/diQl2HDIinCtvijnVeP.sdz6flPXFfiTdx.NEq3/MppR.9tuXg2');
 
 /* reCaptcha */
+define('RECAPTCHA_SITEKEY', 'YOUR_SITEKEY');
 define('RECAPTCHA_SECRET', 'YOUR_SECRET');
 
 /* OTHER */

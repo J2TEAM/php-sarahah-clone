@@ -25,11 +25,11 @@ define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
         <div class="col-xs-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              Developed by <strong><a href="https://junookyo.blogspot.com/?utm_source=sarahah" target="_blank">Juno_okyo</a></strong>.
+              Developed by <strong><a href="https://junookyo.blogspot.com/?utm_source=sarahah_clone" target="_blank">Juno_okyo</a></strong>.
               Copyright &copy; <?php echo date('Y'); ?> <strong><a href="https://www.facebook.com/J2TeaM.pro/" target="_blank">J2TEAM</a></strong>.
               All rights reserved.
               <br>
-              The source code is available on <a href="https://github.com/J2TeaM" target="_blank">GitHub</a>.
+              The source code is available on <a href="https://github.com/J2TeaM/php-sarahah-clone/" target="_blank">GitHub</a>.
             </div>
           </div>
 

@@ -76,11 +76,11 @@ function formatTime($timestamp) {
                   </div>
                   <div class="media-body">
                     <button type="button" class="close" aria-label="Delete" data-id="<?php echo $message['id']; ?>"><span aria-hidden="true">&times;</span></button>
-                    <!-- <span class="message-content">...</span> -->
                     <blockquote>
                       <p class="message-content"><?php echo clean($message['content']); ?></p>
                       <footer>Anonymous at <?php echo formatTime($message['timestamp']); ?></footer>
                     </blockquote>
+                    <button class="btn btn-default btn-sm btn-share" data-id="<?php echo $message['id']; ?>"><span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share</button>
                   </div>
                   <hr>
                 </li>
@@ -88,6 +88,28 @@ function formatTime($timestamp) {
               </ul>
               <?php endif; ?>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-share">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Share</h4>
+          </div>
+          <div class="modal-body">
+            <form action="share.php" method="POST" role="form" id="form-share">
+              <div class="form-group">
+                <label for="caption">Caption</label>
+                <textarea name="" id="caption" class="form-control" rows="5" placeholder="Your caption..." required></textarea>
+              </div>
+
+              <input type="hidden" id="current_message_id">
+            
+              <button type="submit" class="btn btn-primary" id="btn-share" data-loading-text="Loading..."><span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share</button>
+            </form>
           </div>
         </div>
       </div>

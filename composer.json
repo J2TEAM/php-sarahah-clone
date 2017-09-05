@@ -1,6 +1,7 @@
 {
     "require": {
         "google/recaptcha": "~1.1",
-        "joshcam/mysqli-database-class": "dev-master"
+        "joshcam/mysqli-database-class": "dev-master",
+        "stil/gd-text": "^1.1"
     }
 }

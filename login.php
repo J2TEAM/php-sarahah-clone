@@ -2,6 +2,7 @@
 /* Developed by Juno_okyo */
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
 require_once ROOT . 'config.php';
+require_once ROOT . 'vendor/autoload.php';
 
 session_start();
 
@@ -11,10 +12,32 @@ if (isset($_SESSION['logged_in'])) {
   exit;
 }
 
+function get_client_ip() {
+  $ipaddress = '';
+  if (getenv('HTTP_CLIENT_IP'))
+    $ipaddress = getenv('HTTP_CLIENT_IP');
+  else if(getenv('HTTP_X_FORWARDED_FOR'))
+    $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+  else if(getenv('HTTP_X_FORWARDED'))
+    $ipaddress = getenv('HTTP_X_FORWARDED');
+  else if(getenv('HTTP_FORWARDED_FOR'))
+    $ipaddress = getenv('HTTP_FORWARDED_FOR');
+  else if(getenv('HTTP_FORWARDED'))
+    $ipaddress = getenv('HTTP_FORWARDED');
+  else if(getenv('REMOTE_ADDR'))
+    $ipaddress = getenv('REMOTE_ADDR');
+  else
+    $ipaddress = 'UNKNOWN';
+  return $ipaddress;
+}
+
+$recaptcha = new \ReCaptcha\ReCaptcha(RECAPTCHA_SECRET);
 $error = FALSE;
 
-if (isset($_POST['username'], $_POST['password']) && ! empty($_POST['username']) && ! empty($_POST['password'])) {
-  if ($_POST['username'] === ADMIN_USERNAME && password_verify($_POST['password'], ADMIN_PASSWORD)) {
+if (isset($_POST['username'], $_POST['password'], $_POST['g-recaptcha-response']) && ! empty($_POST['username']) && ! empty($_POST['password']) && ! empty($_POST['g-recaptcha-response'])) {
+  $resp = $recaptcha->verify($_POST['g-recaptcha-response'], get_client_ip());
+
+  if ($resp->isSuccess() && $_POST['username'] === ADMIN_USERNAME && password_verify($_POST['password'], ADMIN_PASSWORD)) {
     $_SESSION['logged_in'] = TRUE;
 
     // Redirect to the messages page
@@ -52,7 +75,7 @@ if (isset($_POST['username'], $_POST['password']) && ! empty($_POST['username'])
               <h3 class="panel-title">User Login</h3>
             </div>
             <div class="panel-body">
-              <form action="login.php" method="POST" role="form">
+              <form action="login.php" method="POST" role="form" id="form">
                 <div class="form-group">
                   <label for="username"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Username</label>
                   <input type="text" class="form-control" name="username" id="username" placeholder="Your username..." autofocus required>
@@ -63,7 +86,7 @@ if (isset($_POST['username'], $_POST['password']) && ! empty($_POST['username'])
                   <input type="password" class="form-control" name="password" id="password" placeholder="Your password..." required>
                 </div>
               
-                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</button>
+                <button type="submit" class="btn btn-primary g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITEKEY; ?>" data-callback="recaptchaCallback"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</button>
                 <button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Reset</button>
               </form>
             </div>
@@ -80,5 +103,15 @@ if (isset($_POST['username'], $_POST['password']) && ! empty($_POST['username'])
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+      function recaptchaCallback() {
+        if (document.getElementById('g-recaptcha-response').value.length > 0) {
+          document.getElementById('form').submit();
+        } else {
+          return false;
+        }
+      }
+    </script>
   </body>
 </html>

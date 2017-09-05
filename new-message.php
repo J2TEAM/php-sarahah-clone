@@ -74,7 +74,7 @@ if (isset($_POST['message'], $_POST['g-recaptcha-response']) && ! empty($_POST['
                   <textarea name="message" class="form-control" rows="5" maxlength="700" placeholder="Your message..." required autofocus></textarea>
                 </div>
               
-                <button type="submit" class="btn btn-primary btn-block g-recaptcha" data-sitekey="6LfXvC4UAAAAAKkSguZdwX9E3_lrrMP3bZcD_Isf" data-callback="recaptchaCallback"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Send</button>
+                <button type="submit" class="btn btn-primary btn-block g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITEKEY; ?>" data-callback="recaptchaCallback"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Send</button>
               </form>
             </div>
           </div>

@@ -96,6 +96,6 @@ jQuery(document).ready(function($) {
   });
 
   $modal.on('shown.bs.modal', function() {
-    $caption.focus();
+    $caption.val('').focus();
   });
 });

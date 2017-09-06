@@ -2,6 +2,12 @@
 /* Developed by Juno_okyo */
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
 
+/* Auto installation */
+if ( ! file_exists(ROOT . 'config.php') && file_exists(ROOT . 'install.php')) {
+  header('Location: install.php', TRUE, 302);
+  exit;
+}
+
 session_start();
 
 // Check login status

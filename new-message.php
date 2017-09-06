@@ -67,7 +67,7 @@ if (isset($_POST['message'], $_POST['g-recaptcha-response']) && ! empty($_POST['
           <div class="panel panel-default">
             <div class="panel-body">
               <form action="new-message.php" method="POST" role="form" id="form">
-                <legend>Send a new message to <strong><?php echo YOUR_NAME; ?></strong></legend>
+                <legend>Send a new message to <strong><?php echo htmlentities(strip_tags(YOUR_NAME), ENT_QUOTES | ENT_IGNORE, 'UTF-8'); ?></strong></legend>
               
                 <div class="form-group">
                   <label for="">Leave a constructive message</label>

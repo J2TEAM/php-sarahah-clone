@@ -115,7 +115,7 @@ if (file_exists(ROOT . 'config.php.example')) {
 
                 <div class="form-group">
                   <label for="db_pass">Password</label>
-                  <input type="password" class="form-control" name="db_pass" id="db_pass" placeholder="password" required>
+                  <input type="password" class="form-control" name="db_pass" id="db_pass" placeholder="password">
                 </div>
 
                 <div class="form-group">

@@ -40,7 +40,8 @@ if (file_exists(ROOT . 'config.php.example')) {
         'sitekey',
         'secret',
         'access_token',
-        'your_name'
+        'your_name',
+        'text_direction'
       );
       $template = file_get_contents(ROOT . 'config.php.example');
       
@@ -159,6 +160,14 @@ if (file_exists(ROOT . 'config.php.example')) {
                 <div class="form-group">
                   <label for="your_name">Your name</label>
                   <input type="text" class="form-control" name="your_name" id="your_name" placeholder="Example: Manh Tuan" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="text_direction">Text direction</label>
+                  <select name="text_direction" id="text_direction" class="form-control" required>
+                    <option value="ltr" selected>Left-to-right (LTR)</option>
+                    <option value="rtl">Right-to-left (RTL)</option>
+                  </select>
                 </div>
               
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Install</button>

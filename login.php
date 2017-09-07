@@ -49,7 +49,7 @@ if (isset($_POST['username'], $_POST['password'], $_POST['g-recaptcha-response']
 }
 
 ?><!DOCTYPE html>
-<html lang="en">
+<html dir="<?php echo TEXT_DIRECTION; ?>" lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

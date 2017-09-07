@@ -21,3 +21,4 @@ define('ACCESS_TOKEN', '{9}');
 
 /* OTHER */
 define('YOUR_NAME', '{10}');
+define('TEXT_DIRECTION', '{11}');

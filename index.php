@@ -1,6 +1,7 @@
 <?php
 /* Developed by Juno_okyo */
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
+require_once ROOT . 'config.php';
 
 /* Auto installation */
 if ( ! file_exists(ROOT . 'config.php') && file_exists(ROOT . 'install.php')) {
@@ -16,7 +17,7 @@ if (isset($_SESSION['logged_in'])) {
   exit;
 }
 ?><!DOCTYPE html>
-<html lang="en">
+<html dir="<?php echo TEXT_DIRECTION; ?>" lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

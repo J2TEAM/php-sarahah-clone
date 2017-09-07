@@ -18,9 +18,26 @@
         <?php else: ?>
         <li><a href="login.php">Login</a></li>
         <?php endif; ?>
-        <li><a href="about.php">About</a></li>
+        <li><a data-toggle="modal" href="#modal-about">About</a></li>
         <li><a href="https://m.me/manhtuan1412" target="_blank">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="modal fade" id="modal-about">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</h4>
+      </div>
+      <div class="modal-body">
+        <p>Developed by <strong><a href="https://junookyo.blogspot.com/?utm_source=sarahah_clone" target="_blank">Juno_okyo</a></strong>.
+        Copyright &copy; 2017 <strong><a href="https://www.facebook.com/J2TeaM.pro/" target="_blank">J2TEAM</a></strong>.
+        All rights reserved.</p>
+        <p>The source code is available on <a href="https://github.com/J2TeaM/php-sarahah-clone/" target="_blank">GitHub</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>

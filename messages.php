@@ -51,7 +51,7 @@ function formatTime($timestamp) {
       <div class="row">
         <div class="col-xs-12">
           <div class="alert alert-info">
-            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Total: <strong id="count"><?php echo $count; ?></strong> messages received.
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Total: <strong id="count"><?php echo $count; ?></strong> <?php echo ($count === 1) ? 'message' : 'messages'; ?> received.
           </div>
         </div>
       </div>
